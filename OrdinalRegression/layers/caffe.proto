@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package caffe;
+
+message LayerParameter {
+  optional OrdinalRegressionParameter ordinal_regression_loss_param = 147;
+  optional OrdinalRegressionParameter mae_param = 148;
+}
+
+message OrdinalRegressionParameter {
+  optional uint32 k = 1;
+  optional string weight_file = 2;
+}
+message MAEParameter {
+  optional int32 axis = 2 [default = 1];
+
+  // If specified, ignore instances with the given label.
+  optional int32 ignore_label = 3;
+ 
+}
